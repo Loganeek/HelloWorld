@@ -14,7 +14,7 @@ jobs:
         include:
           - qt_arch: win64_mingw81
             qt_ver: 6.2.0
-            qt_tools: "tools_mingw"
+            qt_tools: "tools_mingw,qt.tools.win64_mingw810"
             qt_tools_mingw_install: mingw810_64 
     env:
       targetName: HelloWorld.exe
@@ -25,7 +25,6 @@ jobs:
         with:
           version: ${{ matrix.qt_ver }}
           arch: ${{ matrix.qt_arch }}
-          archives: 'qtbase'
           tools: ${{ matrix.qt_tools }}
           cache: 'false'
           
