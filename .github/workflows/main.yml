@@ -1,16 +1,23 @@
 name: Windows
 on: 
   # push代码时触发workflow
-  push:
-    paths:
-      - '*.pro'
-      - 'src/**'
-      - '.github/workflows/main.yml'
-  pull_request:
-    paths:
-      - '*.pro'
-      - 'src/**'
-      - '.github/workflows/main.yml' 
+  # push:
+  #   paths:
+  #     - '*.pro'
+  #     - 'src/**'
+  #     - '.github/workflows/main.yml'
+  # pull_request:
+  #   paths:
+  #     - '*.pro'
+  #     - 'src/**'
+  #     - '.github/workflows/main.yml' 
+  
+  workflow_dispatch:
+   inputs:
+      version: 
+        description: '测试'
+        required: false
+        default: '0.0.0.0'
 jobs:
   build:
     name: Build
