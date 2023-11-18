@@ -13,7 +13,7 @@ jobs:
       matrix:
         include:
           - qt_arch: win64_mingw
-            qt_ver: 6.2.4
+            qt_ver: 6.2.*
             qt_tools: "tools_mingw,qt.tools.win64_mingw810"
             qt_tools_mingw_install: mingw810_64 
     env:
@@ -23,7 +23,6 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          # aqtversion: '==3.1.*'
           host: 'windows'
           target: 'desktop'
           tools: ${{ matrix.qt_tools }}
@@ -31,7 +30,7 @@ jobs:
           arch: ${{ matrix.qt_arch }}
           cache: 'false'
           
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
           
@@ -56,6 +55,7 @@ jobs:
       #   run: |
       #     Get-Command -Name 'qmake' | Format-List
       #     Get-Command -Name 'mingw32-make' | Format-List
+      
       - name: mingw-build
         id: build
         shell: cmd
@@ -87,7 +87,7 @@ jobs:
 
           echo "packageName=${env:archiveName}" >> $env:GITHUB_OUTPUT
            
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.package.outputs.packageName }}
           path: ${{ steps.package.outputs.packageName }}
