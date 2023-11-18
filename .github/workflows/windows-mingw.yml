@@ -14,7 +14,7 @@ jobs:
         include:
           - qt_arch: win64_mingw
             qt_ver: 6.2.2
-            qt_tools: "tools_mingw90"
+            qt_tools: "tools_mingw,9.0.0-1-202111221309,qt.tools.win64_mingw900"
             qt_tools_mingw_install: mingw900_64 
     env:
       targetName: HelloWorld.exe
@@ -23,11 +23,12 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          host: 'windows'
-          target: 'desktop'
-          tools: ${{ matrix.qt_tools }}
+          # host: 'windows'
+          # target: 'desktop'
           version: ${{ matrix.qt_ver }}
+          aqtversion: '==2.0.5'
           arch: ${{ matrix.qt_arch }}
+          tools: ${{ matrix.qt_tools }}
           cache: 'false'
           
       - uses: actions/checkout@v4
