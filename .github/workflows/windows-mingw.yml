@@ -13,15 +13,15 @@ jobs:
       matrix:
         include:
           - qt_arch: win64_mingw81
-            qt_ver: 6.4.3
+            qt_ver: 6.2.*
             qt_tools: "tools_mingw,8.1.0-1-202004170606,qt.tools.win64_mingw810"
-            qt_tools_mingw_install: mingw810_64
+            qt_tools_mingw_install: mingw810_64 
     env:
       targetName: HelloWorld.exe
     steps:
       # 安装Qt库
       - name: Install Qt
-        uses: jurplel/install-qt-action@v3.3.0
+        uses: jurplel/install-qt-action@v3 
         with:
           version: ${{ matrix.qt_ver }}
           arch: ${{ matrix.qt_arch }}
