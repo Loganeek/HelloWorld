@@ -12,8 +12,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - qt_arch: win64_mingw
-            qt_ver: 6.2.0
+          - qt_arch: win64_mingw81
+            qt_ver: 6.2.1
             qt_tools: "tools_mingw,qt.tools.win64_mingw810"
             qt_tools_mingw_install: mingw810_64 
     env:
