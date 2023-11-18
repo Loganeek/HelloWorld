@@ -31,9 +31,9 @@ jobs:
           arch: ${{ matrix.qt_arch }}
           cache: 'false'
           
-      # - uses: actions/checkout@v2
-      #   with:
-      #     fetch-depth: 1
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
           
       # Qt5环境配置
       # - name: Qt 5 environment configuration
