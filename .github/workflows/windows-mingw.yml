@@ -26,7 +26,7 @@ jobs:
           aqtversion: '==3.1.*'
           host: 'windows'
           target: 'desktop'
-          toolsOnly: 'true'
+          # toolsOnly: 'true'
           tools: ${{ matrix.qt_tools }}
           # version: ${{ matrix.qt_ver }}
           # arch: ${{ matrix.qt_arch }}
