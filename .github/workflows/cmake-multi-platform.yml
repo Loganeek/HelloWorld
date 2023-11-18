@@ -59,7 +59,7 @@ jobs:
         make
 
     - name: Create ZIP of ${{ matrix.os }} app
-      run: tar -czvf '${{ matrix.os }}_${{ matrix.c_compiler }}.tar.gz' ./
+      run: tar -czvf '${{ matrix.os }}_${{ matrix.c_compiler }}.tar.gz' ./build
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3.1.2
