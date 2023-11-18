@@ -12,10 +12,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - qt_arch: win64_mingw
+          - qt_arch: "win64_mingw"
             qt_ver: 6.2.4
-            qt_tools: tools_mingw90
-            qt_tools_mingw_install: mingw1120_64 
+            qt_tools: "tools_mingw90"
+            qt_tools_mingw_install: "mingw1120_64"
     env:
       targetName: HelloWorld.exe
     steps:
