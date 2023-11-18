@@ -23,10 +23,14 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: ${{ matrix.qt_ver }}
-          arch: ${{ matrix.qt_arch }}
+          aqtversion: '==3.1.*'
+          host: 'windows'
+          target: 'desktop'
+          toolsOnly: 'true'
           tools: ${{ matrix.qt_tools }}
-          cache: 'false'
+          # version: ${{ matrix.qt_ver }}
+          # arch: ${{ matrix.qt_arch }}
+          # cache: 'false'
           
       # - uses: actions/checkout@v2
       #   with:
