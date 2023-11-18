@@ -65,7 +65,7 @@ jobs:
             msvc_arch: x64
             qt_arch_install: msvc2019_64
     env:
-      targetName: HelloActions-Qt.exe
+      targetName: HelloWorld.exe
     # 步骤
     steps:
       # 安装Qt
