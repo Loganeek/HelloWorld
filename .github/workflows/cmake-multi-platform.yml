@@ -55,7 +55,7 @@ jobs:
       run: qmake && make
 
     - name: Create ZIP of ${{ matrix.os }} app
-      run: Compress-Archive /home/runner/work/HelloWorld/* '${{ matrix.c_compiler }}_.zip'
+      run: tar -czvf '${{ matrix.os }}_${{ matrix.c_compiler }}.zip' /home/runner/work/HelloWorld
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3.1.2
