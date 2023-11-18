@@ -69,6 +69,7 @@ jobs:
         run: |
           New-Item -ItemType Directory ${env:archiveName}
           # 拷贝exe
+          echo "copy exe file"
           Copy-Item release\${env:targetName} ${env:archiveName}\
           # 拷贝依赖
           # --no-translations  无多国语言
@@ -76,6 +77,8 @@ jobs:
           # --no-system-d3d-compiler
           # --plugindir release/plugins
           # --no-svg  无矢量图片
+          
+          echo "windeployqt"
           windeployqt --qmldir . --plugindir ${env:archiveName}\plugins --no-translations –no-angle –no-opengl-sw --compiler-runtime ${env:archiveName}\${env:targetName}
           # # 删除不必要的文件
           # $excludeList = @("*.qmlc", "*.ilk", "*.exp", "*.lib", "*.pdb")
