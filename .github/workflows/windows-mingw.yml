@@ -25,6 +25,7 @@ jobs:
         with:
           version: ${{ matrix.qt_ver }}
           arch: ${{ matrix.qt_arch }}
+          archives: 'qtbase'
           tools: ${{ matrix.qt_tools }}
           cache: 'false'
           
