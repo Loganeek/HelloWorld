@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Set color
         id: color-selector
-        shell: bash
+        shell: pwsh
         run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
         
       - name: Get color
