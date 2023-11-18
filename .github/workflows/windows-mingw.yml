@@ -26,6 +26,7 @@ jobs:
           version: ${{ matrix.qt_ver }}
           arch: ${{ matrix.qt_arch }}
           tools: ${{ matrix.qt_tools }}
+          archives: "qtbase"
           cache: 'false'
           
       - uses: actions/checkout@v2
