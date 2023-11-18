@@ -12,8 +12,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - qt_arch: win64_mingw81
-            qt_ver: 6.2.*
+          - qt_arch: win64_mingw
+            qt_ver: 6.2.4
             qt_tools: "tools_mingw,qt.tools.win64_mingw810"
             qt_tools_mingw_install: mingw810_64 
     env:
@@ -23,14 +23,13 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          aqtversion: '==3.1.*'
+          # aqtversion: '==3.1.*'
           host: 'windows'
           target: 'desktop'
-          # toolsOnly: 'true'
           tools: ${{ matrix.qt_tools }}
           version: ${{ matrix.qt_ver }}
           arch: ${{ matrix.qt_arch }}
-          # cache: 'false'
+          cache: 'false'
           
       # - uses: actions/checkout@v2
       #   with:
