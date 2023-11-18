@@ -85,12 +85,12 @@ jobs:
 
           $name = ${env:archiveName}
           # echo "::set-output name=packageName::$name"
-          echo "packageName=$name" >> $GITHUB_ENV
+          echo "packageName=$name" >> $GITHUB_OUTPUT
            
       - uses: actions/upload-artifact@v2
         with:
-          name: ${{env.packageName}}
-          path: ${{env.packageName}}
+          name: ${{ steps.package.outputs.packageName }}
+          path: ${{ steps.package.outputs.packageName }}
       - name: uploadRelease
         if: startsWith(github.event.ref, 'refs/tags/')
         uses: svenstaro/upload-release-action@v2
