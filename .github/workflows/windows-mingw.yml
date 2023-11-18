@@ -13,7 +13,7 @@ jobs:
       matrix:
         include:
           - qt_arch: win64_mingw
-            qt_ver: 6.2.4
+            qt_ver: 6.2.3
             qt_tools: "tools_mingw,qt.tools.win64_mingw810"
             qt_tools_mingw_install: mingw810_64 
     env:
@@ -25,7 +25,6 @@ jobs:
         with:
           host: 'windows'
           target: 'desktop'
-          aqtversion: '==3.1.*'
           tools: ${{ matrix.qt_tools }}
           version: ${{ matrix.qt_ver }}
           arch: ${{ matrix.qt_arch }}
