@@ -28,8 +28,8 @@ jobs:
           target: 'desktop'
           # toolsOnly: 'true'
           tools: ${{ matrix.qt_tools }}
-          # version: ${{ matrix.qt_ver }}
-          # arch: ${{ matrix.qt_arch }}
+          version: ${{ matrix.qt_ver }}
+          arch: ${{ matrix.qt_arch }}
           # cache: 'false'
           
       # - uses: actions/checkout@v2
