@@ -21,7 +21,7 @@ jobs:
     steps:
       # 安装Qt库
       - name: Install Qt
-        uses: jurplel/install-qt-action@lastest
+        uses: jurplel/install-qt-action@3.3.0
         with:
           version: ${{ matrix.qt_ver }}
           arch: ${{ matrix.qt_arch }}
