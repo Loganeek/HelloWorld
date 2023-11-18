@@ -8,7 +8,7 @@ Dialog::Dialog(QWidget *parent)
     ui->setupUi(this);
 }
 
-Dialog::~Dialog()
+Dialog::~Dialog()   // 析构函数
 {
     delete ui;
 }
