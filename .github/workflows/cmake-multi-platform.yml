@@ -65,5 +65,5 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3.1.2
       with:
-        name: ${{ matrix.os }}_${{ matrix.c_compiler }}.tar.gz
+        name: ${{ matrix.os }}_${{ matrix.c_compiler }}
         path: ./build/${{ matrix.os }}_${{ matrix.c_compiler }}.tar.gz
