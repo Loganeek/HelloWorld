@@ -13,7 +13,7 @@ jobs:
       matrix:
         include:
           - qt_arch: win64_mingw81
-            qt_ver: 6.0.0
+            qt_ver: 6.4.3
             qt_tools: "tools_mingw,8.1.0-1-202004170606,qt.tools.win64_mingw810"
             qt_tools_mingw_install: mingw810_64
     env:
@@ -21,10 +21,9 @@ jobs:
     steps:
       # 安装Qt库
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@lastest
         with:
           version: ${{ matrix.qt_ver }}
-          aqtversion: '==2.0.5'
           arch: ${{ matrix.qt_arch }}
           tools: ${{ matrix.qt_tools }}
           cached: 'false'
@@ -64,7 +63,7 @@ jobs:
       - name: package
         id: package      
         env:
-          archiveName: ${{ matrix.qt_ver }}-${{ matrix.qt_target }}-${{ matrix.qt_arch }}
+          archiveName: ${{ matrix.qt_ver }}-${{ matrix.qt_arch }}
         shell: pwsh
         run: |
           New-Item -ItemType Directory ${env:archiveName}
@@ -83,8 +82,7 @@ jobs:
           # 打包zip
           Compress-Archive -Path ${env:archiveName} ${env:archiveName}'.zip'
 
-          $name = ${env:archiveName}
-          echo "packageName=$name" >> $env:GITHUB_OUTPUT
+          echo "packageName=${env:archiveName}" >> $env:GITHUB_OUTPUT
            
       - uses: actions/upload-artifact@v2
         with:
