@@ -1,4 +1,4 @@
-name: Windows MinGW
+name: Test Actions
 on:
   workflow_dispatch:
    inputs:
@@ -10,20 +10,6 @@ jobs:
     name: Build
     runs-on: windows-2019
     steps:
-      # 安装Qt库
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v2
-        with:
-          version: ${{ matrix.qt_ver }}
-          aqtversion: '==2.0.5'
-          arch: ${{ matrix.qt_arch }}
-          tools: ${{ matrix.qt_tools }}
-          cached: 'false'
-          
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
-          
       - name: Save state
         run: echo "{name}={value}" >> $GITHUB_STATE
       
