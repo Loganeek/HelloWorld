@@ -84,7 +84,6 @@ jobs:
           Compress-Archive -Path ${env:archiveName} ${env:archiveName}'.zip'
 
           $name = ${env:archiveName}
-          # echo "::set-output name=packageName::$name"
           echo "packageName=$name" >> $env:GITHUB_OUTPUT
            
       - uses: actions/upload-artifact@v2
