@@ -12,8 +12,8 @@ jobs:
     strategy:
       matrix:
         include:
-            qt_ver: 6.2.4
-          - qt_arch: "win64_mingw"
+          - qt_ver: 6.2.4
+            qt_arch: "win64_mingw"
             qt_tools: "tools_mingw90"
             qt_tools_mingw_install: "mingw1120_64"
     env:
@@ -87,10 +87,20 @@ jobs:
 
           echo "packageName=${env:archiveName}" >> $env:GITHUB_OUTPUT
            
+      # - uses: actions/upload-artifact@v3
+      #   with:
+      #     name: ${{ steps.package.outputs.packageName }}
+      #     path: ${{ steps.package.outputs.packageName }}
+
+      - uses: nadeemjazmawe/inno-setup-action-cli@v6.0.5
+        with: 
+            filepath: '.\script\InstallerScript.iss'
+            
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.package.outputs.packageName }}
-          path: ${{ steps.package.outputs.packageName }}
+          path: .\build\helloWorld.exe
+            
       # - name: uploadRelease
       #   if: startsWith(github.event.ref, 'refs/tags/')
       #   uses: svenstaro/upload-release-action@v2
