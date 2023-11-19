@@ -69,19 +69,21 @@ jobs:
           archiveName: ${{ matrix.qt_ver }}-${{ matrix.qt_arch }}
         shell: pwsh
         run: |
-          New-Item -ItemType Directory ${env:archiveName}
-          # 拷贝exe
-          Copy-Item release\${env:targetName} ${env:archiveName}\
           # 拷贝依赖
           # --no-translations  无多国语言
           # --no-opengl-sw  无openGL
           # --no-system-d3d-compiler
           # --plugindir release/plugins
           # --no-svg  无矢量图片
-          windeployqt --qmldir . --plugindir ${env:archiveName}\plugins --no-translations --no-opengl-sw --no-system-d3d-compiler --compiler-runtime ${env:archiveName}\${env:targetName}
+          windeployqt --qmldir . --plugindir release\plugins --no-translations --no-opengl-sw --no-system-d3d-compiler --compiler-runtime release\${env:targetName}
           # # 删除不必要的文件
           # $excludeList = @("*.qmlc", "*.ilk", "*.exp", "*.lib", "*.pdb")
-          # Remove-Item -Path ${env:archiveName} -Include $excludeList -Recurse -Force
+          # Remove-Item -Path release -Include $excludeList -Recurse -Force
+
+          New-Item -ItemType Directory ${env:archiveName}
+          # 拷贝
+          Copy-Item release\* ${env:archiveName}\
+          
           # 打包zip
           Compress-Archive -Path ${env:archiveName} ${env:archiveName}'.zip'
 
