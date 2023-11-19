@@ -89,15 +89,17 @@ jobs:
 
           echo "packageName=${env:archiveName}" >> $env:GITHUB_OUTPUT
            
-      # - uses: actions/upload-artifact@v3
-      #   with:
-      #     name: ${{ steps.package.outputs.packageName }}
-      #     path: ${{ steps.package.outputs.packageName }}
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.package.outputs.packageName }}
+          path: ${{ steps.package.outputs.packageName }}
 
       - name: Compile .ISS to .EXE Installer
         uses: Minionguyjpro/Inno-Setup-Action@v1.0.0
         with:
           path: '.\scripts\InstallerScript.iss'
+          # Extra arguments/options to include. Include the slashes for them.
+          options: '/F${{steps.package.outputs.packageName}}_setup'
           
       - uses: actions/upload-artifact@v3
         with:
