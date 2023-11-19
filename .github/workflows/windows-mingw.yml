@@ -103,8 +103,8 @@ jobs:
           
       - uses: actions/upload-artifact@v3
         with:
-          name: ${{ steps.package.outputs.packageName }}
-          path: .\release\out\helloWorld.exe
+          name: '/F${{steps.package.outputs.packageName}}_setup'
+          path: .\release\out\${{steps.package.outputs.packageName}}.exe
             
       # - name: uploadRelease
       #   if: startsWith(github.event.ref, 'refs/tags/')
