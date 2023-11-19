@@ -82,7 +82,7 @@ jobs:
 
           New-Item -ItemType Directory ${env:archiveName}
           # 拷贝
-          Copy-Item release\* ${env:archiveName}\
+          Copy-Item release\* ${env:archiveName}\ -Recurse
           
           # 打包zip
           Compress-Archive -Path ${env:archiveName} ${env:archiveName}'.zip'
@@ -99,7 +99,7 @@ jobs:
         with:
           path: '.\scripts\InstallerScript.iss'
           # Extra arguments/options to include. Include the slashes for them.
-          options: '/F${{steps.package.outputs.packageName}}_setup'
+          options: /F${{steps.package.outputs.packageName}}_setup
           
       - uses: actions/upload-artifact@v3
         with:
