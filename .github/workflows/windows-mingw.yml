@@ -94,14 +94,15 @@ jobs:
       #     name: ${{ steps.package.outputs.packageName }}
       #     path: ${{ steps.package.outputs.packageName }}
 
-      - uses: nadeemjazmawe/inno-setup-action-cli@v6.0.5
-        with: 
-            filepath: '.\scripts\InstallerScript.iss'
-            
+      - name: Compile .ISS to .EXE Installer
+        uses: Minionguyjpro/Inno-Setup-Action@v1.0.0
+        with:
+          path: '.\scripts\InstallerScript.iss'
+          
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.package.outputs.packageName }}
-          path: .\release\helloWorld.exe
+          path: .\release\out\helloWorld.exe
             
       # - name: uploadRelease
       #   if: startsWith(github.event.ref, 'refs/tags/')
