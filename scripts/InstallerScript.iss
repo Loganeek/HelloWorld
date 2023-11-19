@@ -4,7 +4,7 @@
 #define MyAppName "HelloWorld"
 #define MyAppVersion "1.5"
 #define MyAppExeName "HelloWorld.exe"
-#define MyAppFolder ".\build"
+#define MyAppFolder "..\release"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
