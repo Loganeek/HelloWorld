@@ -99,8 +99,8 @@ jobs:
         with:
           path: '.\scripts\InstallerScript.iss'
           # Extra arguments/options to include. Include the slashes for them.
-          options: /F${{steps.package.outputs.packageName}}_setup
-          
+          options: /F"${{steps.package.outputs.packageName}}_setup"
+ 
       - uses: actions/upload-artifact@v3
         with:
           name: '${{steps.package.outputs.packageName}}_setup'
