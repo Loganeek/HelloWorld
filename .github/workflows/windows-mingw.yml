@@ -94,12 +94,12 @@ jobs:
 
       - uses: nadeemjazmawe/inno-setup-action-cli@v6.0.5
         with: 
-            filepath: '.\scripts\InstallerScript.iss'
+            filepath: /DChinsesLanguageFile=language\ChineseSimplified.isl '.\scripts\InstallerScript.iss'
             
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.package.outputs.packageName }}
-          path: .\build\helloWorld.exe
+          path: .\release\helloWorld.exe
             
       # - name: uploadRelease
       #   if: startsWith(github.event.ref, 'refs/tags/')
