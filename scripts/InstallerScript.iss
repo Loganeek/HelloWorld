@@ -5,6 +5,7 @@
 #define MyAppVersion "1.5"
 #define MyAppExeName "HelloWorld.exe"
 #define MyAppFolder "..\release"
+#define ChinsesLanguageFile "language\ChineseSimplified.isl"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
