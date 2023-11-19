@@ -91,7 +91,7 @@ jobs:
            
       - uses: actions/upload-artifact@v3
         with:
-          name: ${{ steps.package.outputs.packageName }}
+          name: '${{steps.package.outputs.packageName}}_unpackage'
           path: ${{ steps.package.outputs.packageName }}
 
       - name: Compile .ISS to .EXE Installer
@@ -103,7 +103,7 @@ jobs:
           
       - uses: actions/upload-artifact@v3
         with:
-          name: '/F${{steps.package.outputs.packageName}}_setup'
+          name: '${{steps.package.outputs.packageName}}_setup'
           path: .\release\out\${{steps.package.outputs.packageName}}.exe
             
       # - name: uploadRelease
